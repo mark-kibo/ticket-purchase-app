@@ -37,15 +37,20 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-top: 30px;
     margin-left: 10px;
     align-items: center;
+    width: 100%;
+    
     
 }
 .movie-item{
     padding: 14px 10px;
+    display: inline-block;
     align-items: center;
+    overflow: hidden;
+    align-items: stretch;
 
 }
 
@@ -59,6 +64,9 @@ body {
 }
 .movie-item:hover .play {
     opacity: 1;
+  }
+  .movie-item:hover .card img{
+    background: transparent;
   }
 .movie-item .play a, span{
   margin-right: 100px;

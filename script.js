@@ -66,59 +66,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function handleRes(data) {
     // let available_tickets=document.querySelector("#remaining-tickets")
-    let movie_card = document.querySelector(".card")
+    let movie_card = document.querySelector("#movie-list")
     console.log(movie_card)
     data.map(film => {
-        console.log(film)
-        let img=document.createElement('img')
-        // let h4=document.createElement('h4')
-        // let container=document.createElement('div')
-        // let span1=document.createElement('span')
-        // let span2=document.createElement('span')
-        // let p=document.createElement('p')
-        // let div=document.createElement('div')
-        // let button=document.createElement('button')
-        // img.src=`${film.poster}`
-        img.setAttribute('src',  `${film.poster}`)
-        img.setAttribute('style', 'width:100%;')
-        movie_card.appendChild(img)
-        // img.alt="movie poster"
-        // img.style.width="100%"
-        // h4.innerHTML=`${film.title}`
-        // container.class="container"
-        // span1.innerHTML=`Showtime :${film.showtime}`
-        // span2.innerHTML=`${film.runtime} minutes`
-        // p.innerHTML=`${film.description}`
-        // button.innerHTML=`Buy ticket`
-        // button.id=`${film.id}`
+        let maindiv= document.createElement("div")
+        maindiv.setAttribute('class', 'movie-item')
+        maindiv.innerHTML=
+        `
+        <div class="play">
+        <a href="#" onclick="document.getElementById('id01').style.display='block'" class="w1-button">
+            <i class="fa-solid fa-circle-play"></i>
+        </a>
+        <span id="remaining-tickets">${film.capacity -film.tickets_sold} rem</span>
+    </div>
 
-        // div.appendChild(button)
-        // container.appendChild(h4)
-        // container.appendChild(span1)
-        // container.appendChild(span2)
-        // container.appendChild(p)
-        // container.appendChild(div)
-
-        // movie_card.appendChild(img)
-        // movie_card.appendChild(container)
-
-        // movie_card.innerHtml=`
-        // <img  src"${film.poster}" alt="movie poster" style="width: 100%;" >
-        //         <div class="container">
-        //             <h4><b>${film.title}</b></h4>
-        //             <span>Showtime:${film.showtime} </span>
-        //             <span>Showtime:${film.runtime} minutes </span>
-        //             <p>${film.description}</p>
-        //             <div>
-        //                 <button id=${film.id}>Buy ticket</button>
-        //             </div>
-        //         </div>
-        // `
-        //     let buyBtn=document.querySelector(`#${film.id}`)
-        //     buyBtn.addEventListener("onclick", (e)=>{
-
-        //     })
-
+    <div class="card">
+        <img src="${film.poster}" alt="Avatar"
+           style="width: 100%;" >
+        <div class="container">
+            <h4><b>${film.title}</b></h4>
+            <p>Showtime: ${film.showtime}</p>
+            <p>Time: ${film. runtime}</p>
+            <button id="${film.id}">Buy ticket</button>
+        </div>
+    </div>
+        `
+        movie_card.appendChild(maindiv)
     }
     )
 }
