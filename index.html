@@ -1,12 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TicketApp</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://kit.fontawesome.com/4ea38d57d2.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
     
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="active" href="#">Home</a>
+        <a href="">about</a>
+    </div>
+
+    <div id="movie-list">
+        <div class="movie-item">
+            <div class="play">
+                <a href="#" onclick="document.getElementById('id01').style.display='block'" class="w1-button">
+                    <i class="fa-solid fa-circle-play"></i>
+                </a>
+                <span id="remaining-tickets">27 rem</span>
+            </div>
+
+            <div class="card">
+                <img src="https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg" alt="Avatar"
+                   style="width: 100%;" >
+                <div class="container">
+                    <h4><b>John Doe</b></h4>
+                    <span>Showtime: </span>
+                    <p>Architect & Engineer</p>
+
+                    <div>
+                        <button>Buy ticket</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- modals -->
+
+    <!-- video(trailer) modal -->
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-card-4">
+            <header class="w3-container w3-teal">
+                <span onclick="document.getElementById('id01').style.display='none'
+            pause()" class="w3-button w3-display-topright">&times;</span>
+                <h2>Trailer</h2>
+            </header>
+            <div class="w3-container">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/HurjfO_TDlQ"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- purchase modal  -->
+    <div id="id02" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+    
+          <div class="w3-center"><br>
+            <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+            <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+          </div>
+        
+          <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+           
+    
+        </div>
+    </div>
+
+
+    <div id="footer-section">
+        <p>copyright &COPY; Mark Kibocha</p>
+    </div>
+
+
+
 </body>
+
 </html>
