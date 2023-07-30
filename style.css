@@ -145,65 +145,19 @@ body {
   #form-container{
     align-content: center;
     margin-left: 30px;
+    flex-basis: 50%;
   }
 
   #qr-code{
     width: 40%;
     padding: 20px 13px;
-  }
-
-  #qr-code-card {
-    position: relative;
-    width: 220px;
-    height: 320px;
-    background: mediumturquoise;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
-    border-radius: 15px;
-    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 1 16px 16px 1 rgba(12, 230, 12, 0.2);
+    margin-right: 30px;
   }
   
-  #qr-code-card::before,
-  #qr-code-card::after {
-    position: absolute;
-    content: "";
-    width: 20%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
-    background-color: lightblue;
-    transition: all 0.5s;
-  }
   
-  #qr-code-card::before {
-    top: 0;
-    right: 0;
-    border-radius: 0 15px 0 100%;
-  }
-  
-  #qr-code-card::after {
-    bottom: 0;
-    left: 0;
-    border-radius: 0 100%  0 15px;
-  }
-  
-  #qr-code-card:hover::before,
-  #qr-code-card:hover:after {
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    transition: all 0.5s;
-  }
-  
-  #qr-code-card:hover:after {
-    content: "";
-  }
   .modal {
     width: fit-content;
     height: fit-content;

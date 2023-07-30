@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://kit.fontawesome.com/4ea38d57d2.js" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
 </head>
 
@@ -80,18 +80,18 @@
                   </div>
                   <div class="credit-card-info--form">
                     <div class="input_container">
-                      <label for="password_field" class="input_label">Card holder full name</label>
-                      <input id="password_field" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name">
+                      <label for="name" class="input_label">Enter full name</label>
+                      <input id="name" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name">
                     </div>
                     <div class="input_container">
-                      <label for="password_field" class="input_label">Card Number</label>
-                      <input id="password_field" class="input_field" type="number" name="input-name" title="Inpit title" placeholder="0000 0000 0000 0000">
+                      <label for="email" class="input_label">Email</label>
+                      <input id="email" class="input_field" type="email" name="input-email" title="Inpit title" placeholder="Enter email">
                     </div>
                     <div class="input_container">
-                      <label for="password_field" class="input_label">Expiry Date / CVV</label>
+                      <label for="tickets" class="input_label">number of tickets</label>
                       <div class="split">
-                      <input id="password_field" class="input_field" type="text" name="input-name" title="Expiry Date" placeholder="01/23">
-                      <input id="password_field" class="input_field" type="number" name="cvv" title="CVV" placeholder="CVV">
+                      <input id="tickets" class="input_field" type="text" name="input-ticket"  placeholder="1">
+                      <input id="price" class="input_field" type="text" name="input-price"  placeholder="50$" disabled>
                     </div>
                     </div>
                   </div>
@@ -100,8 +100,14 @@
                 </div>
         </div>
         <div id="qr-code">
-            <div id="qr-code-card">HOVER</div>
-            <p>Download qr code by hovering on it</p>
+            <div id="qr-code-image">
+
+            </div>
+            <div id="content">
+              <h3>Title</h3>
+              <span>price</span>
+
+            </div>
         </div>
     </div>
     <div id="footer-section">
@@ -109,7 +115,12 @@
     </div>
 
 
-
+ 
+    <script>
+      let output =new QRCode(document.getElementById("qr-code-image"), "http://www.google.com");
+      console.log(output)
+    </script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
