@@ -54,10 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // fetch our data
     fetchFilmsOrFilm()
         .then(res => {
+            console.log(res)
             handleRes(res)
             console.log(res)
         })
         .catch(e => console.log(e))
+
 })
 
 
@@ -65,33 +67,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function handleRes(data) {
-    // let available_tickets=document.querySelector("#remaining-tickets")
-    let movie_card = document.querySelector("#movie-list")
-    console.log(movie_card)
-    data.map(film => {
-        let maindiv= document.createElement("div")
-        maindiv.setAttribute('class', 'movie-item')
-        maindiv.innerHTML=
-        `
-        <div class="play">
-        <a href="#" onclick="document.getElementById('id01').style.display='block'" class="w1-button">
-            <i class="fa-solid fa-circle-play"></i>
-        </a>
-        <span id="remaining-tickets">${film.capacity -film.tickets_sold} rem</span>
-    </div>
+    // 
+    let movie_card = document.querySelector("body")
+    console.log()
 
-    <div class="card">
-        <img src="${film.poster}" alt="Avatar"
-           style="width: 100%;" >
-        <div class="container">
-            <h4><b>${film.title}</b></h4>
-            <p>Showtime: ${film.showtime}</p>
-            <p>Time: ${film. runtime}</p>
-            <button id="${film.id}">Buy ticket</button>
-        </div>
-    </div>
+    let patchBody;
+    data.map(film => {
+        let card = document.createElement('div')
+        card.setAttribute('class', 'card')
+        card.innerHTML = `
+        <div class="poster">
+                <img src="${film.poster}" alt="${film.title}"
+                    style="width: 100%;">
+            </div>
+    
+            <div class="details">
+                <div class="play">
+                    <a href="#" onclick="document.getElementById('id01').style.display='block'" class="w1-button">
+                        <i class="fa-solid fa-circle-play"></i>
+                    </a>
+                </div>
+                <h4><b>${film.title}</b></h4>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4/5</span>
+                </div>
+                <div class="tags">
+                    <span>Showtime: ${film.showtime}</span>
+                    <span>Runtime: ${film.runtime}</span>
+                    <span>Tickets: ${film.capacity - film.tickets_sold}</span>
+                </div>
+                <div class="info">
+                    <p>${film.description}</p>
+                </div>
+                <div class="buy-btn"><button id="${film.id}">Buy ticket</button></div>
+            </div>
         `
-        movie_card.appendChild(maindiv)
+
+
+
+        movie_card.appendChild(card)
+        let buy_ticket = document.getElementById(`${film.id}`)
+        buy_ticket.addEventListener('click', (e) => {
+            document.getElementById('id02').style.display = 'block';
+        })
+
+
+
+
+        if (film.tickets_sold === film.capacity) {
+            buy_ticket.setAttribute('disabled', 'true')
+        }
+        // once the button is clicked for the specific movie open a form modal
+        let patchBody = {
+            tickets_sold: `${parseInt(film.tickets_sold)}`
+        }
+
     }
     )
+
+
+    let form = document.querySelector('#ticket-form')
+    let qrdiv = document.getElementById("qr-code")
+    // get form modal data and pass it to our qr code  
+    form.addEventListener("submit", (e) => {
+        let info = {}
+        e.preventDefault()
+        e.target.querySelectorAll('input').forEach(element => {
+            info[`${element.name}`] = element.value
+
+        });
+        console.log(info)
+        // patch body  
+        patchBody.tickets_sold = `${parseInt(patchBody.tickets_sold) + parseInt(info.tickets)}`
+
+        console.log(buy_ticket.id)
+        // execute patch after 5 seconds
+        setTimeout(() => {
+            console.log(patchFilm(patchBody, buy_ticket.id))
+        }, 5000)
+
+    })
 }
