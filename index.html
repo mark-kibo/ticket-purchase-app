@@ -8,39 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://kit.fontawesome.com/4ea38d57d2.js" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
+
 </head>
 
 <body>
-    <div class="navbar">
-        <a class="active" href="#">Home</a>
-        <a href="">about</a>
-    </div>
-
-    <div id="movie-list">
-        <div class="movie-item">
-            <div class="play">
-                <a href="#" onclick="document.getElementById('id01').style.display='block'" class="w1-button">
-                    <i class="fa-solid fa-circle-play"></i>
-                </a>
-                <span id="remaining-tickets"></span>
-            </div>
-
-            <div class="card">
-                <img src="https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg" alt="Avatar"
-                   style="width: 100%;" >
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <span>Showtime: </span>
-                    <p>Architect & Engineer</p>
-                    <button>Buy ticket</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
     <!-- modals -->
 
     <!-- video(trailer) modal -->
@@ -64,26 +37,42 @@
     <!-- purchase modal  -->
     <div id="id02" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-    
-          <div class="w3-center"><br>
-            <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-            <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-          </div>
-        
-          <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-            <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-           
-    
+
+            <div class="w3-center"><br>
+                <span onclick="document.getElementById('id02').style.display='none'"
+                    class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+            </div>
+
+            <div class="form">
+                <form action="" id="ticket-form">
+                    <label for="">Full names</label>
+                    <input type="text" name="name" id="full-name" class="names"> 
+                    <label for="">email</label>
+                    <input type="email" id="email" name="email">
+                    <label for="">Number of tickets</label>
+                    <input type="number" id="tickets" value="1" name="tickets">
+
+                    <button>send</button>
+                </form>
+                <div id="qr-code">
+
+                </div>
+            </div>
+            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                <button onclick="document.getElementById('id02').style.display='none'" type="button"
+                    class="w3-button w3-red">Cancel</button>
+
+
+            </div>
         </div>
     </div>
 
 
-    <div id="footer-section">
-        <p>copyright &COPY; Mark Kibocha</p>
-    </div>
 
 
 
+    <script src="./script.js"></script>
 </body>
 
 </html>
