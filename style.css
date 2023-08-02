@@ -134,11 +134,18 @@ body {
     background-color: #007bb2;
     transition: background 0.5s;
   }
-  .card .details .buy-btn button:hover{
+  .card .details .buy-btn .buy:hover{
     background: #34ff22;
   }
-
-
+  .card .details .sold-btn button{
+    background: #f5f8f5;
+  }
+  .card .details .buy-btn .delete{
+    background: #f80404;
+  }
+  .card .details .buy-btn .edit{
+    background: #6798f5;
+  }
   .card .details .play{
     position: absolute;
   
